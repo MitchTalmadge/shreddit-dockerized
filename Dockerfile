@@ -10,6 +10,9 @@ RUN apk update && \
     bash \
     sudo
 RUN pip install -U shreddit
+# Arrow needs to be downgraded
+RUN pip uninstall --yes arrow
+RUN pip install arrow==0.9.0
 
 # Create working environment
 RUN mkdir -p /app/mount
