@@ -1,7 +1,7 @@
 FROM python:alpine
 
-ENV UID=1001
-ENV GID=1001
+ENV UID=1000
+ENV GID=1000
 
 # Install dependencies
 RUN apk update && \
