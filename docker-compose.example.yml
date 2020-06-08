@@ -4,6 +4,7 @@ services:
   shreddit:
     container_name: shreddit
     image: mitchtalmadge/shreddit-dockerized:latest
+    restart: unless-stopped
     volumes:
       - ./config:/app/config
     environment:
