@@ -2,6 +2,8 @@ FROM python:alpine
 
 ENV UID=1000
 ENV GID=1000
+ENV APP_DIR="/app"
+ENV APP_CONFIG_DIR="${APP_DIR}/config"
 
 # Install dependencies
 RUN apk update && \
@@ -15,9 +17,12 @@ RUN pip uninstall --yes arrow
 RUN pip install arrow==0.9.0
 
 # Create working environment
-RUN mkdir -p /app/mount
-COPY . /app
-WORKDIR /app/mount
+RUN mkdir -p ${APP_CONFIG_DIR}
+COPY . ${APP_DIR}
+WORKDIR ${APP_DIR}
+
+RUN ls
+RUN pwd
 
 # Run shreddit
 ENTRYPOINT [ "/bin/sh", "/app/entrypoint.sh" ]

@@ -15,7 +15,7 @@ I recommend using Docker Compose to set up and run the container, but you can us
 This container does not need to be built from source; just use the pre-built image from Docker Hub, `mitchtalmadge/shreddit-dockerized:latest`.
 
 ## Shreddit Config
-To configure shreddit, mount the docker volume `/app/mount`. 
+To configure shreddit, mount the docker volume `/app/config`. 
 
 The first time you run this container, template config files will be generated for you. Fill them out, and the next time you run the container, it will detect the config files and run shreddit as you specify (see later steps).
 
@@ -37,7 +37,7 @@ CRON=* * * * *
 That's it!
 
 ## UID & GID
-The volume and configuration files will by default be owned by the user and group with UID and GID `1000`.
+The config directory and files created will be owned by default by the user and group with UID and GID `1000`.
 
 To choose your own UID/GID, just set the env vars:
 
