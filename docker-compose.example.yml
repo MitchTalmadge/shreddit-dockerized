@@ -3,7 +3,7 @@ version: "3.0"
 services:
   shreddit:
     container_name: shreddit
-    build: .
+    image: mitchtalmadge/shreddit-dockerized:latest
     volumes:
       - ./config:/app/config
     environment:
