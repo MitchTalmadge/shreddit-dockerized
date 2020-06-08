@@ -1,5 +1,5 @@
 #!/bin/bash -e
-set -o xtrace # To debug, change + to -
+set +o xtrace # To debug, change + to -
 
 # Create user and group that will own the config files (if they don't exist already).
 if [ ! "$(getent group ${GID})" ]; then
