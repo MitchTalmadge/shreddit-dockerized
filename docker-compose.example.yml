@@ -1,0 +1,12 @@
+version: "3.0"
+
+services:
+  shreddit:
+    container_name: shreddit
+    build: .
+    volumes:
+      - ./config:/app/config
+    environment:
+      - UID=1000
+      - GID=1000
+      - CRON=* * * * *

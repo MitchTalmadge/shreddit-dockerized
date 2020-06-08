@@ -1,6 +1,8 @@
 # Shreddit Dockerized
-A Docker wrapper for [Shreddit](https://github.com/x89/Shreddit), the Reddit auto-delete tool.
-Can easily be automated on a cron schedule.
+A Docker wrapper for [Shreddit](https://github.com/x89/Shreddit), the Reddit auto-delete tool. Easily automated via cron!
+
+- GitHub Link: https://github.com/MitchTalmadge/shreddit-dockerized
+- Docker Hub Link: https://hub.docker.com/r/mitchtalmadge/shreddit-dockerized
 
 # Motivation
 The idea behind this container is to allow you to automatically run shreddit once per day, hour, minute, whatever suits you -- or, you can do away with cron and have this container run shreddit only one time per invocation. 
@@ -10,7 +12,7 @@ If you don't already know what shreddit is, it is a python tool that can delete 
 I wanted a way to run this tool automatically so that every day, my history beyond one week would be completely wiped for me. I hate setting up python and cron, so I made a container to do it for me.
 
 # Usage
-I recommend using Docker Compose to set up and run the container, but you can use what suits you.
+I recommend using Docker Compose to set up and run the container, but you can use what suits you. An example Docker Compose file is provided [here.](https://github.com/MitchTalmadge/shreddit-dockerized/blob/master/docker-compose.example.yml)
 
 This container does not need to be built from source; just use the pre-built image from Docker Hub, `mitchtalmadge/shreddit-dockerized:latest`.
 
