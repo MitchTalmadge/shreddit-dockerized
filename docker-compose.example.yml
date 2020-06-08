@@ -7,6 +7,6 @@ services:
     volumes:
       - ./config:/app/config
     environment:
-      - UID=1000
-      - GID=1000
-      - CRON=* * * * *
+      UID: 1000
+      GID: 1000
+      CRON: "* * * * *"
