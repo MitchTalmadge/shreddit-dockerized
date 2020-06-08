@@ -10,7 +10,7 @@ If you don't already know what shreddit is, it is a python tool that can delete 
 I wanted a way to run this tool automatically so that every day, my history beyond one week would be completely wiped for me. I hate setting up python and cron, so I made a container to do it for me.
 
 # Usage
-I recommend using docker-compose to set up and run the container, but you can use what suits you.
+I recommend using Docker Compose to set up and run the container, but you can use what suits you.
 
 This container does not need to be built from source; just use the pre-built image from Docker Hub, `mitchtalmadge/shreddit-dockerized:latest`.
 
@@ -45,3 +45,6 @@ To choose your own UID/GID, just set the env vars:
 UID=1001
 GID=1001
 ```
+
+# Support / Bugs / Feedback
+If something is not working right, [report it](https://github.com/MitchTalmadge/shreddit-dockerized/issues)! We'll get it squared away quickly.
