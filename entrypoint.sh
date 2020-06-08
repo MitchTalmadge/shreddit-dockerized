@@ -1,26 +1,25 @@
 #!/bin/bash -e
-set +o xtrace # To debug, change + to -
+set -o xtrace # To debug, change + to -
 
-APP_USER="appuser"
-APP_GROUP="appgroup"
-
-# Create user and group that will own the config files.
-if [ ! "$(getent group ${APP_GROUP})" ]
-then
+# Create user and group that will own the config files (if they don't exist already).
+if [ ! "$(getent group ${GID})" ]; then
   # Create group
 	addgroup \
-		--gid "${GID}" \
-		${APP_GROUP}
-
+		--gid ${GID} \
+		appgroup
+fi
+APP_GROUP=`getent group ${GID} | awk -F ":" '{ print $1 }'`
+if [ ! "$(getent passwd ${UID})" ]; then
   # Create user
   adduser \
-		--uid "${UID}" \
+		--uid ${UID} \
 		--shell /bin/bash \
 		--no-create-home \
-    --ingroup ${APP_GROUP} \
+		--ingroup ${APP_GROUP} \
     --system \
-		${APP_USER}
+		appuser
 fi
+APP_USER=`getent passwd ${UID} | awk -F ":" '{ print $1 }'`
 chown -R ${APP_USER}:${APP_GROUP} ${APP_CONFIG_DIR}
 
 # Check for existence of config files and generate if missing
