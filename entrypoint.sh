@@ -40,8 +40,10 @@ fi
 if [[ ! -z "${CRON}" ]]; then 
 	echo "Shreddit will run on the following cron schedule: ${CRON}"
 
-	# Append cron job
-	crontab -l | { cat; echo "${CRON} su ${APP_USER} -c \"(cd ${APP_MOUNT_DIR}; shreddit)\" > /proc/1/fd/1 2>/proc/1/fd/2"; } | crontab -
+	# Append cron job if not already appended
+	if ! crontab -l | cat | grep -qe "shreddit"; then
+		crontab -l | { cat; echo "${CRON} su ${APP_USER} -c \"(cd ${APP_MOUNT_DIR}; shreddit)\" > /proc/1/fd/1 2>/proc/1/fd/2"; } | crontab -
+	fi
 
 	# Start cron in foreground
 	crond -f
