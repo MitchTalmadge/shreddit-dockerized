@@ -21,8 +21,5 @@ RUN mkdir -p ${APP_CONFIG_DIR}
 COPY . ${APP_DIR}
 WORKDIR ${APP_DIR}
 
-RUN ls
-RUN pwd
-
 # Run shreddit
 ENTRYPOINT [ "/bin/sh", "/app/entrypoint.sh" ]
