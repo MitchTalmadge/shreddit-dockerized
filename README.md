@@ -32,8 +32,19 @@ When the container starts, it will immediately run shreddit and then exit.
 ### Cron
 To run shreddit on a cron schedule, just set the CRON env var with the schedule. For example:
 
+**Every Minute** (Not recommended)
 ```
 CRON=* * * * *
+```
+
+**Every Hour at Minute 0**
+```
+CRON=0 * * * *
+```
+
+**Every Day at Hour 0, Min 0**
+```
+CRON=0 0 * * *
 ```
 
 That's it!
